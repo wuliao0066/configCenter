@@ -1,0 +1,53 @@
+#配置开发环境
+server:
+  port: 8080
+
+spring:
+  profiles: dev
+  application:
+    name: consumerServer-config
+eureka:
+  client:
+    service-url: #指定eureka注册中心
+      #defaultZone: http://localhost:8000/eureka,http://localhost:8100/eureka,http://localhost:8200/eureka
+      defaultZone: http://localhost:8000/eureka
+#开启feign对Hystrix的支持
+feign:
+  hystrix:
+    enabled: true
+#设置熔断的timeout时间
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 5000
+
+
+---
+#配置测试环境
+server:
+  port: 8090
+
+spring:
+  profiles: test
+  application:
+    name: consumerServer-config
+eureka:
+  client:
+    service-url: #指定eureka注册中心
+      #defaultZone: http://localhost:8000/eureka,http://localhost:8100/eureka,http://localhost:8200/eureka
+      defaultZone: http://localhost:8100/eureka
+#开启feign对Hystrix的支持
+feign:
+  hystrix:
+    enabled: true
+#设置熔断的timeout时间
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 5000

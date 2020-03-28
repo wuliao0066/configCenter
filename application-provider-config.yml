@@ -1,0 +1,81 @@
+#配置开发环境
+server:
+  port: 8081
+
+
+spring:
+  profiles: dev
+  application:
+    name: providerServer-config
+  datasource:
+    druid:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      url: jdbc:mysql://192.168.0.110/kkb?characterEncoding=UTF-8&useSSL=false&serverTimezone=UTC
+      username: root
+      password: root123
+      filters: stat,wall
+      initial-size: 3
+      min-idle: 1
+      max-active: 20
+      test-on-borrow: false
+      test-on-return: false
+      test-while-idle: false
+      validation-query: select 'x'
+      max-wait: 6000
+      pool-prepared-statements: true
+      time-between-eviction-runs-millis: 60000
+      min-evictable-idle-time-millis: 60000
+  jpa:
+    #启动时创建表，默认是false
+    generate-ddl: true
+    show-sql: true
+    hibernate:
+      ddl-auto: none
+eureka:
+  client:
+    service-url: #指定eureka注册中心
+      #defaultZone: http://localhost:8000/eureka,http://localhost:8100/eureka,http://localhost:8200/eureka
+      defaultZone: http://localhost:8000/eureka
+
+
+
+---
+#配置测试环境
+#配置开发环境
+server:
+  port: 8082
+
+
+spring:
+  profiles: test
+  application:
+    name: providerServer-config
+  datasource:
+    druid:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      url: jdbc:mysql://192.168.0.110/kkb01?characterEncoding=UTF-8&useSSL=false&serverTimezone=UTC
+      username: root
+      password: root123
+      filters: stat,wall
+      initial-size: 3
+      min-idle: 1
+      max-active: 20
+      test-on-borrow: false
+      test-on-return: false
+      test-while-idle: false
+      validation-query: select 'x'
+      max-wait: 6000
+      pool-prepared-statements: true
+      time-between-eviction-runs-millis: 60000
+      min-evictable-idle-time-millis: 60000
+  jpa:
+    #启动时创建表，默认是false
+    generate-ddl: true
+    show-sql: true
+    hibernate:
+      ddl-auto: none
+eureka:
+  client:
+    service-url: #指定eureka注册中心
+      #defaultZone: http://localhost:8000/eureka,http://localhost:8100/eureka,http://localhost:8200/eureka
+      defaultZone: http://localhost:8100/eureka
