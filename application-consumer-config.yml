@@ -5,7 +5,7 @@ server:
 spring:
   profiles: dev
   application:
-    name: consumerServer-config
+    name: consumerServer
 eureka:
   client:
     service-url: #指定eureka注册中心
@@ -33,7 +33,7 @@ server:
 spring:
   profiles: test
   application:
-    name: consumerServer-config
+    name: consumerServer
 eureka:
   client:
     service-url: #指定eureka注册中心

@@ -6,7 +6,7 @@ server:
 spring:
   profiles: dev
   application:
-    name: providerServer-config
+    name: providerServer
   datasource:
     druid:
       driver-class-name: com.mysql.cj.jdbc.Driver
@@ -49,7 +49,7 @@ server:
 spring:
   profiles: test
   application:
-    name: providerServer-config
+    name: providerServer
   datasource:
     druid:
       driver-class-name: com.mysql.cj.jdbc.Driver
